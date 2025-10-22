@@ -5,7 +5,7 @@ import { Outlet } from "react-router";
 
 const MainLayouts = () => {
   return (
-    <div className="flex flex-col min-h-screen bg-[#FAF8F1]">
+    <div className="flex flex-col min-h-screen body">
       <Navbar />
       <div className="max-w-screen-xl w-full px-4 md:px-8 lg:px-12 mx-auto flex-1">
         <Outlet />

@@ -5,6 +5,7 @@ import Home from "../Pages/Home";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import MyProfile from "../Pages/MyProfile";
+import ToyDetails from "../Pages/ToyDetails";
 
 export const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ export const router = createBrowserRouter([
           if (!res.ok) throw new Error("Failed to fetch data");
           return res.json();
         },
+      },
+      {
+        path: "/home/:id",
+        element: <ToyDetails />,
       },
       {
         path: "/login",

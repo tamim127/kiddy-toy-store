@@ -12,15 +12,20 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="bg-base-300 max-w-screen">
+    <div
+      className="bg-gradient-to-r from-[#41295a] to-[#2F0743]
+
+
+ max-w-screen"
+    >
       <div className="max-w-7xl mx-auto p-14 z-40 relative">
         {/* Main grid for the footer content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8 lg:gap-16 pb-12">
           {/* Section 1: ToyTopia brand and description */}
           <div className="flex flex-col space-y-4">
             <div className="flex items-center space-x-2">
-              <span className="text-[#3ca2fa] text-3xl font-extrabold">🧸</span>
-              <span className=" text-3xl font-bold">KiddyToy</span>
+              <span className="text-[#3ca2fa] text-3xl font-extrabold"></span>
+              <span className=" text-white text-3xl font-bold">KiddyToy</span>
             </div>
             <p className="text-sm leading-relaxed text-gray-300">
               KiddyToy is a local online kids’ toy store bringing joy,
@@ -30,8 +35,8 @@ const Footer = () => {
 
           {/* Section 2: About Us links */}
           <div>
-            <h4 className=" text-lg font-semibold mb-6">About Us</h4>
-            <ul className="space-y-3">
+            <h4 className=" text-white text-lg font-semibold mb-6">About Us</h4>
+            <ul className="space-y-3 text-gray-300">
               <li>
                 <a href="#" className="hover:text-[#3ca2fa] transition-colors">
                   Our Story
@@ -57,8 +62,10 @@ const Footer = () => {
 
           {/* Section 3: Helpful Links */}
           <div>
-            <h4 className=" text-lg font-semibold mb-6">Helpful Links</h4>
-            <ul className="space-y-3">
+            <h4 className=" text-white text-lg font-semibold mb-6">
+              Helpful Links
+            </h4>
+            <ul className="space-y-3 text-gray-300">
               <li>
                 <a href="#" className="hover:text-[#3ca2fa] transition-colors">
                   FAQs
@@ -83,7 +90,9 @@ const Footer = () => {
 
           {/* Section 4: Contact Us */}
           <div>
-            <h4 className=" text-lg font-semibold mb-6">Contact Us</h4>
+            <h4 className="  text-white text-lg font-semibold mb-6">
+              Contact Us
+            </h4>
             <ul className="space-y-4 text-gray-300">
               <li className="flex items-center space-x-3">
                 <Mail size={18} className="text-[#3ca2fa]" />
@@ -114,7 +123,7 @@ const Footer = () => {
         </div>
 
         {/* Separator line */}
-        <hr className="border-t border-gray-700 my-8" />
+        <hr className="border-t border-1 border-gray-600 my-8" />
 
         {/* Bottom section: social media and copyright */}
         <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-400 space-y-4 md:space-y-0">

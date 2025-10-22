@@ -1,60 +1,68 @@
-import React from "react";
 import { Link, useLoaderData } from "react-router";
 
-const ToyCard = () => {
+const ToyCard = ({ showAll }) => {
   const toys = useLoaderData();
+  const displayToys = showAll ? toys : toys.slice(0, 8);
+
   return (
-    <>
-      <h1>Toys List</h1>
-      <div className="my-8 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5 px-4 sm:px-6 lg:px-0">
-        {toys.map((toy) => (
-          <div className="max-w-sm bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300">
-            <img
-              src={toy.pictureURL}
-              alt={toy.toyName}
-              className="w-full h-48 object-cover"
-            />
+    <div className="my-8 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4 sm:px-6 lg:px-0">
+      {displayToys.map((toy) => (
+        <div
+          key={toy.toyId}
+          className="relative group rounded-2xl transition-all duration-500 hover:scale-[1.03]"
+        >
+          {/* Gradient outline */}
+          <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-purple-500 via-pink-500 to-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl z-0"></div>
 
-            <div className="p-4">
-              <h2 className="text-xl font-semibold mb-2">{toy.toyName}</h2>
+          {/* Inner content with border */}
+          <div className="relative z-10 bg-white rounded-2xl overflow-hidden shadow-lg group-hover:shadow-2xl transition-all duration-500 group-hover:border-gradient-to-r from-purple-500 via-pink-500 to-indigo-500">
+            {/* Toy Image */}
+            <div className="relative h-60 w-full overflow-hidden rounded-t-2xl">
+              <img
+                src={toy.pictureURL}
+                alt={toy.toyName}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              {/* Rating Badge */}
+              <div className="absolute top-3 right-3 bg-yellow-400 text-black font-bold px-3 py-1 rounded-full shadow-md flex items-center">
+                <span>{toy.rating}</span>
+                <svg
+                  className="w-4 h-4 ml-1 fill-current"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                >
+                  <polygon points="10,1 12,7 18,7 13,11 15,17 10,13 5,17 7,11 2,7 8,7" />
+                </svg>
+              </div>
+            </div>
 
-              <div className="flex items-center mb-2">
-                <span className="text-yellow-500 font-bold mr-2">
-                  {toy.rating}
-                </span>
-                <div className="flex">
-                  {Array.from({ length: 5 }, (_, i) => (
-                    <svg
-                      key={i}
-                      className={`w-4 h-4 ${
-                        i < Math.floor(toy.rating)
-                          ? "fill-current text-yellow-500"
-                          : "text-gray-300"
-                      }`}
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 20 20"
-                    >
-                      <polygon points="10,1 12,7 18,7 13,11 15,17 10,13 5,17 7,11 2,7 8,7" />
-                    </svg>
-                  ))}
-                </div>
+            {/* Toy Info */}
+            <div className="p-5 flex flex-col justify-between h-56">
+              <div>
+                <h2 className="text-lg font-bold mb-2 text-gray-900">
+                  {toy.toyName}
+                </h2>
+                <p className="text-gray-700 mb-1">
+                  Available:{" "}
+                  <span className="font-semibold">{toy.availableQuantity}</span>
+                </p>
+                <p className="text-green-600 font-bold text-lg mb-3">
+                  ${toy.price}
+                </p>
               </div>
 
-              <p className="text-gray-600 mb-2">
-                Available: {toy.availableQuantity}
-              </p>
-              <p className="text-green-600 font-bold text-lg mb-4">
-                ${toy.price}
-              </p>
-
-              <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors duration-300">
+              {/* View More Button */}
+              <Link
+                to={`/home/${toy.toyId}`}
+                className="w-full text-center bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-semibold py-2 rounded-xl shadow-md hover:shadow-lg hover:opacity-95 transition-all duration-300"
+              >
                 View More
-              </button>
+              </Link>
             </div>
           </div>
-        ))}
-      </div>
-    </>
+        </div>
+      ))}
+    </div>
   );
 };
 
