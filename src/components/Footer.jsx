@@ -23,7 +23,7 @@ const Footer = () => {
               <span className=" text-3xl font-bold">KiddyToy</span>
             </div>
             <p className="text-sm leading-relaxed text-gray-300">
-              ToyTopia is a local online kids’ toy store bringing joy,
+              KiddyToy is a local online kids’ toy store bringing joy,
               creativity, and fun to every family.
             </p>
           </div>
