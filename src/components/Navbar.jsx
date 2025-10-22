@@ -27,7 +27,7 @@ const Navbar = () => {
           </NavLink>
 
           <NavLink
-            to="/profile"
+            to="/myprofile"
             className={({ isActive }) =>
               isActive
                 ? "text-indigo-700 font-semibold"
