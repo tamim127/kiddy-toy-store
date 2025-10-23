@@ -1,10 +1,202 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Rye&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Rye&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rye&display=swap');
+
+
 @import "tailwindcss";
 @plugin "daisyui";
 
-.body {
-  /* background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%); */
-  background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
-  /* background: linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%); */
-  /* background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%); */
 
+.poppins{
+  font-family: "Poppins", sans-serif;
+}
+
+.rye {
+  font-family: "Rye", serif;
+}
+
+.fredoka {
+  font-family: "Fredoka", sans-serif;
+}
+
+
+
+.body {
+  background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+  
+  font-family: "Poppins", sans-serif;
+
+}
+
+/* NotFound.css */
+.page_404 {
+  padding: 40px 20px; 
+  background: #fff;
+  font-family: "Arvo", serif;
+  overflow: hidden;
+  text-align: center;
+}
+
+.page_404 img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+}
+
+.page_404 .four_zero_four_bg {
+  background-image: url(./assets/bg.gif);
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+  background-position: center;
+  background-size: cover;
+}
+
+.page_404 .four_zero_four_bg h1 {
+  font-size: 60px;
+  margin: 0;
+}
+
+.page_404 .contant_box_404 {
+  margin-top: -30px;
+}
+
+.page_404 .contant_box_404 h3 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.page_404 .contant_box_404 p {
+  color: #6c757d;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.page_404 .link_404 {
+  color: #fff !important;
+  padding: 10px 20px;
+  background: #39ac31;
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+.page_404 .link_404:hover {
+  background: #2d8a27;
+}
+
+/* Medium devices (tablets) */
+@media (min-width: 768px) {
+  .page_404 .four_zero_four_bg {
+    width: 400px;
+    height: 400px;
+  }
+
+  .page_404 .four_zero_four_bg h1 {
+    font-size: 70px;
+  }
+
+  .page_404 .contant_box_404 h3 {
+    font-size: 32px;
+  }
+
+  .page_404 .contant_box_404 p {
+    font-size: 18px;
+  }
+}
+
+/* Large devices (desktop) */
+@media (min-width: 1024px) {
+  .page_404 .four_zero_four_bg {
+    width: 500px;
+    height: 500px;
+  }
+
+  .page_404 .four_zero_four_bg h1 {
+    font-size: 80px;
+  }
+
+  .page_404 .contant_box_404 h3 {
+    font-size: 36px;
+  }
+
+  .page_404 .contant_box_404 p {
+    font-size: 18px;
+  }
+}
+/* swiper slider */
+
+/* Swiper container */
+.swiper {
+  width: 100%;
+  max-height: 600px;
+  height: 80vh; 
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+/* Each slide */
+.swiper-slide {
+  text-align: center;
+  background: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Slide images */
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  
+  transition: transform 0.6s ease;
+  border-radius: 16px;
+}
+
+/* Image hover effect */
+.swiper-slide img:hover {
+  transform: scale(1.05);
+}
+
+/* Navigation buttons */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #fff;
+  transition: 0.3s;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  color: #00c6ff;
+}
+
+/* Pagination dots */
+.swiper-pagination-bullet {
+  background: #fff;
+  opacity: 0.8;
+}
+
+.swiper-pagination-bullet-active {
+  background: #00c6ff;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 1024px) {
+  .swiper {
+    height: 50vh;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .swiper {
+    height: 40vh;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .swiper {
+    height: 35vh;
+  }
 }

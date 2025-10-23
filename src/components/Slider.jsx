@@ -1,66 +1,61 @@
 import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
-const Slider = () => {
+// Swiper core styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
+export default function SliderCSS() {
   return (
-    <div className="carousel w-full">
-      <div id="slide1" className="carousel-item relative w-full">
-        <img
-          src="https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.webp"
-          className="w-full"
-        />
-        <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-          <a href="#slide4" className="btn btn-circle">
-            ❮
-          </a>
-          <a href="#slide2" className="btn btn-circle">
-            ❯
-          </a>
-        </div>
-      </div>
-      <div id="slide2" className="carousel-item relative w-full">
-        <img
-          src="https://img.daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.webp"
-          className="w-full"
-        />
-        <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-          <a href="#slide1" className="btn btn-circle">
-            ❮
-          </a>
-          <a href="#slide3" className="btn btn-circle">
-            ❯
-          </a>
-        </div>
-      </div>
-      <div id="slide3" className="carousel-item relative w-full">
-        <img
-          src="https://img.daisyui.com/images/stock/photo-1414694762283-acccc27bca85.webp"
-          className="w-full"
-        />
-        <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-          <a href="#slide2" className="btn btn-circle">
-            ❮
-          </a>
-          <a href="#slide4" className="btn btn-circle">
-            ❯
-          </a>
-        </div>
-      </div>
-      <div id="slide4" className="carousel-item relative w-full">
-        <img
-          src="https://img.daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.webp"
-          className="w-full"
-        />
-        <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-          <a href="#slide3" className="btn btn-circle">
-            ❮
-          </a>
-          <a href="#slide1" className="btn btn-circle">
-            ❯
-          </a>
-        </div>
-      </div>
+    <div id="app" className="w-full">
+      <Swiper
+        spaceBetween={20}
+        centeredSlides={true}
+        autoplay={{
+          delay: 3000,
+          disableOnInteraction: false,
+        }}
+        pagination={{ clickable: true }}
+        navigation={true}
+        modules={[Autoplay, Pagination, Navigation]}
+        className="mySwiper"
+        breakpoints={{
+          320: { slidesPerView: 1, spaceBetween: 10 }, // Mobile
+          640: { slidesPerView: 1, spaceBetween: 20 }, // Tablet
+          1024: { slidesPerView: 1, spaceBetween: 30 }, // Desktop
+        }}
+      >
+        <SwiperSlide>
+          <img
+            className="w-full h-auto object-cover rounded-xl"
+            src="https://i.postimg.cc/C13CcFXq/1-scaled.jpg"
+            alt="slide 1"
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img
+            className="w-full h-auto object-cover rounded-xl"
+            src="https://i.postimg.cc/8cyp15Gr/71jt-P4pt-Bl-L.jpg"
+            alt="slide 2"
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img
+            className="w-full h-auto object-cover rounded-xl"
+            src="https://i.postimg.cc/2Sdz62Cz/il-fullxfull-3496616427-m9fj.webp"
+            alt="slide 3"
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img
+            className="w-full h-auto object-cover rounded-xl"
+            src="https://i.postimg.cc/x1v5B3C9/BKKUBE1073-15223.jpg"
+            alt="slide 4"
+          />
+        </SwiperSlide>
+      </Swiper>
     </div>
   );
-};
-
-export default Slider;
+}

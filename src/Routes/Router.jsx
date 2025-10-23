@@ -1,11 +1,14 @@
 import { createBrowserRouter } from "react-router";
-import App from "../App";
 import MainLayouts from "../components/Layouts/MainLayouts";
 import Home from "../Pages/Home";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import MyProfile from "../Pages/MyProfile";
 import ToyDetails from "../Pages/ToyDetails";
+import ForgetPassword from "../Pages/ForgetPassword";
+import ProtectedRoute from "../components/ProtectedRoute";
+import Dashboard from "../Pages/Dashboard";
+import NotFound from "../Pages/NotFound";
 
 export const router = createBrowserRouter([
   {
@@ -21,26 +24,41 @@ export const router = createBrowserRouter([
           return res.json();
         },
       },
-      {
-        path: "/home/:id",
-        element: <ToyDetails />,
-      },
-      {
-        path: "/login",
-        element: <Login />,
-      },
-      {
-        path: "/register",
-        element: <Register />,
-      },
+
+      // ✅ Protected pages
       {
         path: "/myprofile",
-        element: <MyProfile />,
+        element: (
+          <ProtectedRoute>
+            <MyProfile />
+          </ProtectedRoute>
+        ),
       },
+      {
+        path: "/dashboard",
+        element: (
+          <ProtectedRoute>
+            <Dashboard />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "/home/:id",
+        element: (
+          <ProtectedRoute>
+            <ToyDetails />
+          </ProtectedRoute>
+        ),
+      },
+
+      // Public pages
+      { path: "/login", element: <Login /> },
+      { path: "/register", element: <Register /> },
+      { path: "/forget-password", element: <ForgetPassword /> },
     ],
   },
   {
-    path: "*", // catch-all route
-    element: <h1 className="text-center text-3xl mt-20">Page Not Found</h1>,
+    path: "*",
+    element: <NotFound />,
   },
 ]);

@@ -13,7 +13,7 @@ import React from "react";
 const Footer = () => {
   return (
     <div
-      className="bg-gradient-to-r from-[#41295a] to-[#2F0743]
+      className="bg-gradient-to-r from-[#4e3369] to-[#8c035c]
 
 
  max-w-screen"

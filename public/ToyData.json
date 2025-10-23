@@ -1,15 +1,15 @@
 [
   {
     "toyId": 1,
-    "toyName": "Talking Quran for Kids",
-    "sellerName": "Little Ummah",
-    "sellerEmail": "info@littleummah.com",
-    "price": 59.99,
-    "rating": 4.9,
-    "availableQuantity": 50,
-    "description": "An interactive Quran book that recites short surahs with touch-sensitive pages. Helps children memorize and learn correct tajweed.",
-    "pictureURL": "https://i.postimg.cc/Vs0DnhpR/H5bd366d36a4540bf8fdbb428b7b2f679-E.avif",
-    "subCategory": "Islamic Learning"
+    "toyName": "5 Pillars of Islam Board Book",
+    "sellerName": "Goodword Books",
+    "sellerEmail": "info@goodwordbooks.com",
+    "price": 12.5,
+    "rating": 4.7,
+    "availableQuantity": 200,
+    "description": "A durable, colourful board book with lift-the-flaps and textures to introduce toddlers to the five essential pillars of Islam in a fun, tactile way.",
+    "pictureURL": "https://i.postimg.cc/x1v5B3C9/BKKUBE1073-15223.jpg",
+    "subCategory": "Islamic Books"
   },
   {
     "toyId": 2,

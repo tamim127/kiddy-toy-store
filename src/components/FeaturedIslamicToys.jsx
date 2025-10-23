@@ -3,8 +3,8 @@ import React from "react";
 const FeaturedIslamicToys = () => {
   return (
     <div>
-      <section className="py-20 px-6 sm:px-12 bg-gradient-to-br from-purple-50 via-white to-blue-50">
-        <h2 className="text-4xl font-extrabold text-center text-gray-800 mb-12">
+      <section className="py-20 px-6 sm:px-12  rounded-xl bg-gradient-to-br from-purple-50 via-white to-blue-50">
+        <h2 className="text-4xl fredoka font-extrabold text-center text-gray-800 mb-12">
           🌙 Featured Islamic Toys
         </h2>
 

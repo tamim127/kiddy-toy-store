@@ -1,71 +1,137 @@
-import React from "react";
+import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { Link, useNavigate } from "react-router";
+import { useAuth } from "../Context/AuthContext.jsx";
+import toast from "react-hot-toast";
 
-const Login = () => {
+
+function Login() {
+  const { login, loginWithGoogle } = useAuth();
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [showPass, setShowPass] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const password = e.target.password.value;
+
+    login(email, password)
+      .then(() => {
+        toast.success("Login Successful!");
+        navigate("/");
+      })
+      .catch((err) => {
+        setError(err.message);
+        toast.error(err.message);
+      });
+  };
+
+  const handleGoogle = () => {
+    loginWithGoogle()
+      .then(() => {
+        toast.success("Google Login Successful!");
+        navigate("/");
+      })
+      .catch((err) => {
+        setError(err.message);
+        toast.error(err.message);
+      });
+  };
+
   return (
     <div className="min-h-screen flex items-center justify-center">
-      <div className="bg-white shadow-lg rounded-xl w-full max-w-md p-8">
-        <h2 className="text-3xl font-bold text-center mb-6">Login</h2>
+      <title>KiddyToy || LogIn</title>
+      <div
+        className="bg-gradient-to-br   from-purple-600 via-pink-700 to-purple-700
 
-        <form className="space-y-4">
+ shadow-lg rounded-lg w-full max-w-md p-6"
+      >
+        <h2 className="text-2xl font-bold text-white text-center mb-6">
+          Login
+        </h2>
+
+        <form onSubmit={handleLogin} className="space-y-4">
           {/* Email */}
           <div>
-            <label className="block text-gray-700 font-medium mb-2">
-              Email
-            </label>
+            <label className="block text-gray-200 mb-1">Email</label>
             <input
               type="email"
-              placeholder="Enter your email"
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+              name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               required
+              placeholder="Enter your email"
+              className="w-full px-3 py-2 rounded-lg border border-gray-300/40 bg-white/10 text-gray-100 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
             />
           </div>
 
           {/* Password */}
-          <div>
-            <label className="block text-gray-700 font-medium mb-2">
-              Password
-            </label>
+          <div className="relative">
+            <label className="block text-gray-200 mb-1">Password</label>
             <input
-              type="password"
-              placeholder="Enter your password"
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+              type={showPass ? "text" : "password"}
+              name="password"
               required
+              placeholder="Enter your password"
+              className="w-full px-3 py-2 rounded-lg border border-gray-300/40 bg-white/10 text-gray-100 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300 pr-10"
             />
+            <button
+              type="button"
+              onClick={() => setShowPass(!showPass)}
+              className="absolute right-3 top-10 text-gray-300"
+            >
+              {showPass ? <FaEyeSlash /> : <FaEye />}
+            </button>
           </div>
+
+          {error && <p className="text-red-400 text-sm">{error}</p>}
 
           {/* Login Button */}
           <button
             type="submit"
-            className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition-colors duration-300 font-semibold"
+            className="w-full bg-blue-500 text-white font-semibold py-2 rounded-lg hover:bg-blue-600 transition"
           >
             Login
           </button>
+
+          {/* Forgot Password */}
+          <p className="text-right text-sm mt-2 text-gray-200">
+            <Link
+              to={`/forget-password?email=${encodeURIComponent(email)}`}
+              className="text-blue-300 hover:underline"
+            >
+              Forgot Password?
+            </Link>
+          </p>
         </form>
 
         {/* Divider */}
         <div className="flex items-center my-4">
-          <hr className="flex-grow border-gray-300" />
-          <span className="mx-2 text-gray-400">OR</span>
-          <hr className="flex-grow border-gray-300" />
+          <hr className="flex-grow border-gray-300/40" />
+          <span className="mx-2 text-gray-300">OR</span>
+          <hr className="flex-grow border-gray-300/40" />
         </div>
 
-        {/* Google Login */}
-        <button className="flex items-center justify-center w-full border py-2 rounded-lg hover:bg-gray-100 transition-colors duration-300">
+        {/* Google Button */}
+        <button
+          onClick={handleGoogle}
+          className="flex items-center justify-center w-full border border-gray-300/40 py-2 rounded-lg hover:bg-white/10 transition text-gray-100"
+        >
           <FcGoogle className="mr-2 text-xl" /> Continue with Google
         </button>
 
-        {/* Register Link */}
-        <p className="text-center text-gray-600 mt-4">
+        {/* Register */}
+        <p className="text-center mt-4 text-gray-200">
           Don't have an account?{" "}
-          <Link to="/register" className="text-blue-500 hover:underline">
+          <Link to="/register" className="text-blue-300 hover:underline">
             Register
           </Link>
         </p>
       </div>
     </div>
   );
-};
+}
 
 export default Login;
