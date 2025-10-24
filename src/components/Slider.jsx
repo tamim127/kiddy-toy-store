@@ -22,9 +22,9 @@ export default function SliderCSS() {
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper"
         breakpoints={{
-          320: { slidesPerView: 1, spaceBetween: 10 }, // Mobile
-          640: { slidesPerView: 1, spaceBetween: 20 }, // Tablet
-          1024: { slidesPerView: 1, spaceBetween: 30 }, // Desktop
+          320: { slidesPerView: 1, spaceBetween: 10 },
+          640: { slidesPerView: 1, spaceBetween: 20 }, 
+          1024: { slidesPerView: 1, spaceBetween: 30 }, 
         }}
       >
         <SwiperSlide>

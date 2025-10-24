@@ -25,9 +25,9 @@ const ForgetPassword = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50">
+    <div className="min-h-screen flex items-center justify-center ">
       <title>KiddyToy || ForgetPassword</title>
-      <div className="bg-white shadow-lg rounded-xl w-full max-w-md p-8">
+      <div className=" bg-cyan-400 shadow-lg rounded-xl w-full max-w-md p-8">
         <h2 className="text-3xl font-bold text-center mb-6">Forgot Password</h2>
 
         <form onSubmit={handleReset} className="space-y-4">

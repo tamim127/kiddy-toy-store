@@ -1,8 +1,16 @@
 import React from "react";
 import { useAuth } from "../Context/AuthContext";
+import { Navigate, useNavigate } from "react-router";
 
 const Dashboard = () => {
   const { user } = useAuth();
+  const navigate = useNavigate();
+
+  const handleImgClick = () => {
+    if (user) {
+      navigate("/myprofile");
+    }
+  };
 
   const stats = [
     { title: "Total Toys", value: 120 },
@@ -18,14 +26,17 @@ const Dashboard = () => {
   ];
   const shortcuts = [
     { name: "Add Toy" },
-    { name: "View Orders", },
-    { name: "Manage Users",},
+    { name: "View Orders" },
+    { name: "Manage Users" },
   ];
 
   return (
     <div className="min-h-screen  bg-gray-100 my-10 rounded-2xl shadow-2xl p-6">
       <title>KiddyToy || DashBoard</title>
-      <div className="flex items-center justify-between  mb-6">
+      <div
+        onClick={handleImgClick}
+        className="flex items-center justify-between  mb-6"
+      >
         <h1 className="text-3xl font-bold text-gray-800">
           Welcome, {user?.displayName || "User"}!
         </h1>

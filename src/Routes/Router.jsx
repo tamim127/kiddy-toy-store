@@ -25,7 +25,7 @@ export const router = createBrowserRouter([
         },
       },
 
-      // ✅ Protected pages
+      // Protected pages
       {
         path: "/myprofile",
         element: (
@@ -54,7 +54,7 @@ export const router = createBrowserRouter([
       // Public pages
       { path: "/login", element: <Login /> },
       { path: "/register", element: <Register /> },
-      { path: "/forget-password", element: <ForgetPassword /> },
+      { path: "/forgetpassword", element: <ForgetPassword /> },
     ],
   },
   {

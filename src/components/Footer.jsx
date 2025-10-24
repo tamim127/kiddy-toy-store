@@ -12,16 +12,9 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div
-      className="bg-gradient-to-r from-[#4e3369] to-[#8c035c]
-
-
- max-w-screen"
-    >
+    <div className="bg-gradient-to-r from-[#4e3369] to-[#8c035c] max-w-screen">
       <div className="max-w-7xl mx-auto p-14 z-40 relative">
-        {/* Main grid for the footer content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8 lg:gap-16 pb-12">
-          {/* Section 1: ToyTopia brand and description */}
           <div className="flex flex-col space-y-4">
             <div className="flex items-center space-x-2">
               <span className="text-[#3ca2fa] text-3xl font-extrabold"></span>
@@ -32,8 +25,6 @@ const Footer = () => {
               creativity, and fun to every family.
             </p>
           </div>
-
-          {/* Section 2: About Us links */}
           <div>
             <h4 className=" text-white text-lg font-semibold mb-6">About Us</h4>
             <ul className="space-y-3 text-gray-300">
@@ -59,8 +50,6 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-
-          {/* Section 3: Helpful Links */}
           <div>
             <h4 className=" text-white text-lg font-semibold mb-6">
               Helpful Links
@@ -87,8 +76,6 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-
-          {/* Section 4: Contact Us */}
           <div>
             <h4 className="  text-white text-lg font-semibold mb-6">
               Contact Us
@@ -125,7 +112,6 @@ const Footer = () => {
         {/* Separator line */}
         <hr className="border-t border-1 border-gray-600 my-8" />
 
-        {/* Bottom section: social media and copyright */}
         <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-400 space-y-4 md:space-y-0">
           <div className="flex space-x-6">
             <a

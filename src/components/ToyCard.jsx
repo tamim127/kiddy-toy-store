@@ -19,15 +19,16 @@ const ToyCard = ({ showAll }) => {
       {/* Toys Grid */}
       <div
         data-aos="zoom-in-up"
-        className="my-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+        className="my-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 "
       >
+        
         {displayToys.map((toy) => (
           <div
             key={toy.toyId}
             className="relative group rounded-2xl transition-all duration-500 hover:scale-[1.03]"
           >
             {/* Gradient outline */}
-            <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-purple-500 via-pink-500 to-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl z-0"></div>
+            <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-purple-500 via-pink-500 to-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl z-0"  ></div>
 
             {/* Inner card */}
             <div className="relative z-10 bg-white rounded-2xl overflow-hidden shadow-lg group-hover:shadow-2xl transition-all duration-500">
@@ -40,7 +41,7 @@ const ToyCard = ({ showAll }) => {
                 />
 
                 {/* Rating Badge */}
-                <div className="absolute top-3 right-3 bg-yellow-400 text-black font-bold px-3 py-1 rounded-full shadow-md flex items-center text-sm sm:text-base">
+                <div className="absolute top-3 right-3 bg-yellow-400 text-black font-bold px-3 py-1 rounded-full shadow-md flex items-center text-sm sm:text-base skeleton">
                   <span>{toy.rating}</span>
                   <svg
                     className="w-4 h-4 ml-1 fill-current"
@@ -60,7 +61,7 @@ const ToyCard = ({ showAll }) => {
                   </h2>
                   <p className="text-gray-700 mb-1 text-sm sm:text-base">
                     Available:{" "}
-                    <span className="font-semibold skeleton">
+                    <span className="font-semibold ">
                       {toy.availableQuantity}
                     </span>
                   </p>

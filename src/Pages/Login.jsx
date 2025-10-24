@@ -5,8 +5,7 @@ import { Link, useNavigate } from "react-router";
 import { useAuth } from "../Context/AuthContext.jsx";
 import toast from "react-hot-toast";
 
-
-function Login() {
+const Login = () => {
   const { login, loginWithGoogle } = useAuth();
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -43,11 +42,7 @@ function Login() {
   return (
     <div className="min-h-screen flex items-center justify-center">
       <title>KiddyToy || LogIn</title>
-      <div
-        className="bg-gradient-to-br   from-purple-600 via-pink-700 to-purple-700
-
- shadow-lg rounded-lg w-full max-w-md p-6"
-      >
+      <div className="bg-gradient-to-br from-purple-600 via-pink-700 to-purple-700 shadow-lg rounded-lg w-full max-w-md p-6">
         <h2 className="text-2xl font-bold text-white text-center mb-6">
           Login
         </h2>
@@ -100,7 +95,7 @@ function Login() {
           <p className="text-right text-sm mt-2 text-gray-200">
             <Link
               to={`/forget-password?email=${encodeURIComponent(email)}`}
-              className="text-blue-300 hover:underline"
+              className="text-blue-400 hover:underline hover:text-white"
             >
               Forgot Password?
             </Link>
@@ -125,13 +120,13 @@ function Login() {
         {/* Register */}
         <p className="text-center mt-4 text-gray-200">
           Don't have an account?{" "}
-          <Link to="/register" className="text-blue-300 hover:underline">
+          <Link to="/register" className="text-blue-300 hover:underline hover:text-white">
             Register
           </Link>
         </p>
       </div>
     </div>
   );
-}
+};
 
 export default Login;

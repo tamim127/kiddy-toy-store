@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router";
 import { useAuth } from "../Context/AuthContext.jsx";
 import toast from "react-hot-toast";
 
-function Register() {
+const Register = () => {
   const { register, loginWithGoogle } = useAuth();
   const navigate = useNavigate();
   const [showPass, setShowPass] = useState(false);
@@ -23,13 +23,21 @@ function Register() {
   };
 
   const isValidPassword = (pass) => {
-    return pass.length >= 6 && /[A-Z]/.test(pass) && /[a-z]/.test(pass);
+    return (
+      pass.length >= 8 &&
+      /[A-Z]/.test(pass) &&
+      /[a-z]/.test(pass) &&
+      /\d/.test(pass) &&
+      /[@$!%*?&]/.test(pass)
+    );
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!isValidPassword(user.password)) {
-      toast.error("Password must have upper & lower case and min 6 chars");
+     toast.error(
+       "Password must have 1 upper & lower case, number, special charrecters & minimum 8 charecters."
+     );
       return;
     }
 
@@ -156,13 +164,13 @@ function Register() {
         {/* Login Link */}
         <p className="text-center mt-4 text-gray-200">
           Already have an account?{" "}
-          <Link to="/login" className="text-blue-300 hover:underline">
+          <Link to="/login" className="text-blue-300 hover:underline hover:text-white">
             Login
           </Link>
         </p>
       </div>
     </div>
   );
-}
+};
 
 export default Register;

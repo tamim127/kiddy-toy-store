@@ -6,6 +6,7 @@ import WhyChoosePlayDeen from "../components/WhyChoosePlayDeen";
 import FeaturedIslamicToys from "../components/FeaturedIslamicToys";
 import ParentsTestimonials from "../components/ParentsTestimonials";
 import WelcomSection from "./WelcomSection";
+import FeaturesSection from "./FeaturesSection";
 
 const Home = () => {
   const [showAll, setShowAll] = useState(false);
@@ -65,22 +66,11 @@ const Home = () => {
       <div data-aos="fade-left" className="mb-10 sm:mb-16">
         <ParentsTestimonials />
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
-        {[
-          { title: "Safe Materials", icon: "🛡️" },
-          { title: "Educational & Fun", icon: "📚" },
-          { title: "Interactive Audio", icon: "🔊" },
-          { title: "Trusted by Parents", icon: "👨‍👩‍👧‍👦" },
-        ].map((feature, i) => (
-          <div
-            key={i}
-            className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:scale-105 text-center"
-          >
-            <div className="text-4xl mb-3">{feature.icon}</div>
-            <h3 className="font-bold text-gray-800">{feature.title}</h3>
-          </div>
-        ))}
+     
+      <div>
+        <FeaturesSection/>
       </div>
+      
     </div>
   );
 };

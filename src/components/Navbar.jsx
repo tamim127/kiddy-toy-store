@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router";
 import { useAuth } from "../Context/AuthContext.jsx";
 
-function Navbar() {
+const Navbar = () => {
   const { user, loading, logout } = useAuth();
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
@@ -16,6 +16,10 @@ function Navbar() {
     }
   };
 
+  const handleImgClick = () => {
+    navigate("/myprofile");
+  };
+
   const handleProfileClick = () => {
     if (!user) {
       navigate("/login");
@@ -27,7 +31,6 @@ function Navbar() {
   return (
     <nav className="bg-gradient-to-r from-indigo-300 via-purple-300 to-pink-300 p-4 shadow-md sticky top-0 z-50">
       <div className="max-w-6xl mx-auto flex items-center justify-between">
-        {/* Left: Mobile Menu Button + Logo */}
         <div className="flex items-center gap-3">
           {/* Mobile Menu Button */}
           <button
@@ -35,7 +38,7 @@ function Navbar() {
             className="md:hidden flex flex-col justify-between w-6 h-5 focus:outline-none"
           >
             <span
-              className={`block h-1 w-full bg-gray-800 rounded transform transition duration-300 ${
+              className={`block h-1 w-full bg-gray-700 rounded transform transition duration-300 ${
                 menuOpen ? "rotate-45 translate-y-3" : ""
               }`}
             ></span>
@@ -103,7 +106,7 @@ function Navbar() {
           ) : user ? (
             <div className="flex items-center gap-3">
               {/* User Image */}
-              <div className="relative group">
+              <div onClick={handleImgClick} className="relative group ">
                 <img
                   src={user.photoURL || "https://i.ibb.co/2M0x0X3/default.png"}
                   alt={user.displayName || "User"}
@@ -171,6 +174,6 @@ function Navbar() {
       </div>
     </nav>
   );
-}
+};
 
 export default Navbar;

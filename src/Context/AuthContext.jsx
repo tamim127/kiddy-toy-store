@@ -9,19 +9,21 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../firebase/firebase.config";
-
-const AuthContext = createContext();
 export const useAuth = () => useContext(AuthContext);
 
-function AuthProvider({ children }) {
+
+const AuthContext = createContext();
+
+const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
   // Email & Password  Register
   const register = (email, password, name, photoURL) => {
-    return createUserWithEmailAndPassword(auth, email, password).then(
-      (userCredential) => {
-        const currentUser = userCredential.user;
+    return createUserWithEmailAndPassword(auth, email, password)
+      .then(
+      (result) => {
+        const currentUser = result.user;
 
         // Profile update
         return updateProfile(currentUser, {
