@@ -6,6 +6,7 @@ const NotFound = () => {
   return (
     <section>
       <div className="container page_404">
+        <title>Error - 404</title>
         <div className="row">
           <div className="col-sm-12 text-center">
             <div className="four_zero_four_bg">
