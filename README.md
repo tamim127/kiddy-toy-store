@@ -1,16 +1,30 @@
-# React + Vite
+# KiddyToy
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, interactive, and educational toy store web application for kids, built with **React**, **Tailwind CSS**, and **React Router v6**.  
+This project focuses on providing parents a safe, fun, and educational environment for their children while exploring toys online.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌟 Features
 
-## React Compiler
+- **Responsive Design:** Works perfectly on mobile, tablet, and desktop screens.
+- **Protected Routes:** Certain pages like `Dashboard`, `MyProfile`, and `ToyDetails` are accessible only to logged-in users.
+- **User Authentication:** Register, login, and forget-password functionality implemented.
+- **Interactive Dashboard:** Admin dashboard showing stats, quick links, notifications, and chart placeholders.
+- **Educational Toy Catalog:** Fetches toy data dynamically from a JSON file.
+- **Modern UI:** Tailwind CSS + React components with hover effects, cards, and interactive buttons.
+- **Password Validation:** Strong password validation with real-time toast error messages.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🛠 Technologies Used
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Frontend:** React, React Router DOM
+- **Styling:** Tailwind CSS
+- **Authentication:** Firebase Auth (email/password login)
+- **Data Fetching:** JSON file (ToyData.json)
+- **Notifications:** react-toastify
+- **State Management:** React Context API
+
+
+
