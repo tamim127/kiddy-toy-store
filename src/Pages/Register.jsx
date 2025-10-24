@@ -22,22 +22,21 @@ const Register = () => {
     setUser({ ...user, [name]: value });
   };
 
-  const isValidPassword = (pass) => {
-    return (
-      pass.length >= 8 &&
-      /[A-Z]/.test(pass) &&
-      /[a-z]/.test(pass) &&
-      /\d/.test(pass) &&
-      /[@$!%*?&]/.test(pass)
-    );
+  // Advanced password validator
+  
+  const isValidPassword = (password) => {
+    if (!password) return false;
+    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#]).{8,}$/;
+    return regex.test(password);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     if (!isValidPassword(user.password)) {
-     toast.error(
-       "Password must have 1 upper & lower case, number, special charrecters & minimum 8 charecters."
-     );
+      toast.error(
+        "Password must have at least 1 uppercase, 1 lowercase, 1 number, 1 special character (@$!%*?&) & minimum 8 characters."
+      );
       return;
     }
 
@@ -164,7 +163,10 @@ const Register = () => {
         {/* Login Link */}
         <p className="text-center mt-4 text-gray-200">
           Already have an account?{" "}
-          <Link to="/login" className="text-blue-300 hover:underline hover:text-white">
+          <Link
+            to="/login"
+            className="text-blue-300 hover:underline hover:text-white"
+          >
             Login
           </Link>
         </p>
