@@ -6,7 +6,8 @@ import WhyChoosePlayDeen from "../components/WhyChoosePlayDeen";
 import FeaturedIslamicToys from "../components/FeaturedIslamicToys";
 import ParentsTestimonials from "../components/ParentsTestimonials";
 import WelcomSection from "./WelcomSection";
-import FeaturesSection from "./FeaturesSection";
+import OurFeatuers from "../components/OurFeatuers";
+
 
 const Home = () => {
   const [showAll, setShowAll] = useState(false);
@@ -66,9 +67,9 @@ const Home = () => {
       <div data-aos="fade-left" className="mb-10 sm:mb-16">
         <ParentsTestimonials />
       </div>
-     
+    
       <div>
-        <FeaturesSection/>
+        <OurFeatuers/>
       </div>
       
     </div>

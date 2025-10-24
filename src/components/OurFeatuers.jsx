@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router";
 
-export default function FeaturesSection() {
+const OurFeatuers = () => { 
   const features = [
     {
       title: "Safe Materials",
@@ -27,7 +27,7 @@ export default function FeaturesSection() {
 
   return (
     <section className="mx-auto max-w-6xl px-6 py-12">
-      <div  className="mb-8 text-center">
+      <div className="mb-8 text-center">
         <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900">
           What Makes Us Special
         </h2>
@@ -61,3 +61,4 @@ export default function FeaturesSection() {
     </section>
   );
 }
+ export default OurFeatuers;
