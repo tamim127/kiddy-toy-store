@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { useAuth } from "../Context/AuthContext.jsx";
 import toast from "react-hot-toast";
 
 const Login = () => {
   const { login, loginWithGoogle } = useAuth();
   const navigate = useNavigate();
+  const location =useLocation();
+  const from = location.state?.from?.pathname || "/";
   const [email, setEmail] = useState("");
   const [showPass, setShowPass] = useState(false);
   const [error, setError] = useState("");
@@ -19,7 +21,7 @@ const Login = () => {
     login(email, password)
       .then(() => {
         toast.success("Login Successful!");
-        navigate("/");
+        navigate(from, {replace:true});
       })
       .catch((err) => {
         setError(err.message);
@@ -31,7 +33,7 @@ const Login = () => {
     loginWithGoogle()
       .then(() => {
         toast.success("Google Login Successful!");
-        navigate("/");
+        navigate(from, {replace:true});
       })
       .catch((err) => {
         setError(err.message);
@@ -94,7 +96,7 @@ const Login = () => {
           {/* Forgot Password */}
           <p className="text-right text-sm mt-2 text-gray-200">
             <Link
-              to={`/forget-password?email=${encodeURIComponent(email)}`}
+              to={`/forgetpassword?email=${encodeURIComponent(email)}`}
               className="text-blue-400 hover:underline hover:text-white"
             >
               Forgot Password?
@@ -120,7 +122,10 @@ const Login = () => {
         {/* Register */}
         <p className="text-center mt-4 text-gray-200">
           Don't have an account?{" "}
-          <Link to="/register" className="text-blue-300 hover:underline hover:text-white">
+          <Link
+            to="/register"
+            className="text-blue-300 hover:underline hover:text-white"
+          >
             Register
           </Link>
         </p>

@@ -9,14 +9,11 @@ const ProtectedRoute = ({ children }) => {
   if (loading) {
     return (
       <div className="flex justify-center items-center h-screen">
-        <p className="text-lg font-semibold text-blue-500 animate-pulse">
-          <span className="loading loading-ring loading-xl"></span>
-        </p>
+        <span className="loading loading-spinner loading-lg"></span>
       </div>
     );
   }
 
- 
   if (!user) {
     return <Navigate to="/login" state={{ from: location }} replace />;
   }
