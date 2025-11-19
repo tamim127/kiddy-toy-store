@@ -58,4 +58,13 @@ This project is created to practice:
 -swiper
 -aos animation
 
+## Getting Started
+1. Clone the repository:  
+   ```bash
+   git clone https://github.com/tamim127/kiddy-toy-store/
+2. npm install
+3. npm run dev
+
+
+   
 
