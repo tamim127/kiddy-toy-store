@@ -6,6 +6,8 @@ import FeaturedIslamicToys from "../components/FeaturedIslamicToys";
 import ParentsTestimonials from "../components/ParentsTestimonials";
 import WelcomSection from "./WelcomSection";
 import OurFeatuers from "../components/OurFeatuers";
+import PhotoGallery from "../components/PhotoGallery";
+import Services from "../components/Services";
 
 const Home = () => {
   return (
@@ -27,29 +29,37 @@ const Home = () => {
       </div>
 
       {/* Discover By Age */}
-      <div
-        data-aos="fade-up"
-        
-      >
+      <div data-aos="fade-up" className="mb-6 sm:mb-10">
         <DiscoverByAge />
       </div>
 
       {/* Featured Islamic Toys */}
-      <div className="mb-10 sm:mb-16">
+      <div className="mb-6 sm:mb-10">
         <FeaturedIslamicToys />
       </div>
 
       {/* Why Choose PlayDeen */}
-      <div data-aos="fade-right" className="mb-10 sm:mb-16">
+      <div data-aos="fade-right" className="mb-6 sm:mb-10">
         <WhyChoosePlayDeen />
       </div>
 
       {/* Parents Testimonials */}
-      <div data-aos="fade-left" className="mb-10 sm:mb-16">
+      <div data-aos="fade-left" className="mb-6 sm:mb-10">
         <ParentsTestimonials />
       </div>
 
-      <div>
+      {/* Photo section */}
+      <div className="mb-6 sm:mb-10">
+        <PhotoGallery />
+      </div>
+      
+      {/* service section */}
+      <div className="mb-6 sm:mb-10">
+        <Services />
+      </div>
+
+      {/* our features section */}
+      <div className="mb-6 sm:mb-10">
         <OurFeatuers />
       </div>
     </div>

@@ -12,6 +12,11 @@ import NotFound from "../Pages/NotFound";
 import About from "../Pages/About";
 import Contact from "../Pages/Contact";
 import AllToys from "../Pages/AllToys";
+import FAQs from "../Pages/FAQs";
+import MeetTheTeam from "../Pages/MeetTheTeam";
+import SupportSection from "../Pages/SupportSection";
+import Careers from "../Pages/Careers";
+import OurStory from "../Pages/ourStory";
 
 export const router = createBrowserRouter([
   {
@@ -47,11 +52,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/home/:id",
-        element: (
-          
-            <ToyDetails />
-          
-        ),
+        element: <ToyDetails />,
       },
 
       // Public pages
@@ -65,6 +66,11 @@ export const router = createBrowserRouter([
         element: <AllToys />,
         loader: () => fetch("/ToyData.json"),
       },
+      { path: "/faq", element: <FAQs /> },
+      { path: "/meet-team", element: <MeetTheTeam /> },
+      { path: "/support", element: <SupportSection /> },
+      { path: "/career", element: <Careers /> },
+      { path: "/our-story", element: <OurStory /> },
     ],
   },
   {

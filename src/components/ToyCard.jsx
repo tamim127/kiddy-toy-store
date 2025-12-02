@@ -1,16 +1,16 @@
 import { Link, useLoaderData } from "react-router";
 
-const ToyCard = ({ showAll }) => {
+const ToyCard = () => {
   const toys = useLoaderData();
-  const displayToys = showAll ? toys : toys.slice(0, 8);
+  const displayToys = toys.slice(0, 8);
 
   return (
-    <div className="px-4 sm:px-6 lg:px-0">
+    <div className=" lg:px-0">
       {/* Section Header */}
-      <div className="text-center fredoka mt-16 mb-10 space-y-3 sm:space-y-5">
-        <h1 className="text-3xl sm:text-4xl font-bold text-gray-800">
+      <div className="text-center fredoka mt-20  space-y-3 sm:space-y-5">
+        <h2 className="text-5xl fredoka md:text-6xl font-black bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-700 bg-clip-text text-transparent mb-4">
           Popular Muslim Toys & Educational Items for Little Believers
-        </h1>
+        </h2>
         <p className="text-lg fredoka sm:text-xl text-gray-600">
           Fun, Faith & Learning — All in One Place!
         </p>
@@ -21,21 +21,20 @@ const ToyCard = ({ showAll }) => {
         data-aos="zoom-in-up"
         className="my-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 "
       >
-        
         {displayToys.map((toy) => (
           <div
             key={toy.toyId}
             className="relative group rounded-2xl transition-all duration-500 hover:scale-[1.03]"
           >
             {/* Gradient outline */}
-            <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-purple-500 via-pink-500 to-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl z-0"  ></div>
+            <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-purple-500 via-pink-500 to-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl z-0"></div>
 
             {/* Inner card */}
             <div className="relative z-10 bg-white rounded-2xl overflow-hidden shadow-lg group-hover:shadow-2xl transition-all duration-500">
               {/* Toy Image */}
               <div className="relative h-52 sm:h-56 md:h-60 w-full overflow-hidden rounded-t-2xl">
                 <img
-                  src={toy.pictureURL}
+                  src={toy.mainImage}
                   alt={toy.toyName}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />

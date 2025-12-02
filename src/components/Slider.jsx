@@ -23,35 +23,35 @@ export default function SliderCSS() {
         className="mySwiper"
         breakpoints={{
           320: { slidesPerView: 1, spaceBetween: 10 },
-          640: { slidesPerView: 1, spaceBetween: 20 }, 
-          1024: { slidesPerView: 1, spaceBetween: 30 }, 
+          640: { slidesPerView: 1, spaceBetween: 20 },
+          1024: { slidesPerView: 1, spaceBetween: 30 },
         }}
       >
         <SwiperSlide>
           <img
             className="w-full h-auto object-cover rounded-xl"
-            src="https://i.postimg.cc/C13CcFXq/1-scaled.jpg"
+            src="https://images.pexels.com/photos/1620675/pexels-photo-1620675.jpeg"
             alt="slide 1"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
             className="w-full h-auto object-cover rounded-xl"
-            src="https://i.postimg.cc/8cyp15Gr/71jt-P4pt-Bl-L.jpg"
+            src="https://images.pexels.com/photos/1234232/pexels-photo-1234232.jpeg"
             alt="slide 2"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
             className="w-full h-auto object-cover rounded-xl"
-            src="https://i.postimg.cc/2Sdz62Cz/il-fullxfull-3496616427-m9fj.webp"
+            src="https://images.pexels.com/photos/796633/pexels-photo-796633.jpeg"
             alt="slide 3"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
             className="w-full h-auto object-cover rounded-xl"
-            src="https://i.postimg.cc/x1v5B3C9/BKKUBE1073-15223.jpg"
+            src="https://images.pexels.com/photos/191360/pexels-photo-191360.jpeg"
             alt="slide 4"
           />
         </SwiperSlide>

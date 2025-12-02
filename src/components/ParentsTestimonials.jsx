@@ -33,8 +33,8 @@ const ParentsTestimonials = () => {
   ];
 
   return (
-    <section className="py-20 lg:py-28  overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="py-10 overflow-hidden">
+      <div className="max-w-7xl mx-auto ">
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-5xl fredoka md:text-6xl font-black bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-700 bg-clip-text text-transparent mb-4">
@@ -59,8 +59,6 @@ const ParentsTestimonials = () => {
 
               {/* Card */}
               <div className="relative bg-white/95 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-pink-100 hover:border-purple-300 transition-all duration-500 hover:-translate-y-4">
-                
-
                 {/* Rating Stars */}
                 <div className="flex justify-center gap-1 mb-6">
                   {[...Array(review.rating)].map((_, idx) => (

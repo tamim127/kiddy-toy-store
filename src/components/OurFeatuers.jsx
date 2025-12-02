@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router";
 
-const OurFeatuers = () => { 
+const OurFeatuers = () => {
   const features = [
     {
       title: "Safe Materials",
@@ -26,9 +26,9 @@ const OurFeatuers = () => {
   ];
 
   return (
-    <section className="mx-auto max-w-6xl px-6 py-12">
+    <section className="mx-auto max-w-6xl  py-10 ">
       <div className="mb-8 text-center">
-        <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900">
+        <h2 className="text-5xl fredoka md:text-6xl font-black bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-700 bg-clip-text text-transparent mb-4">
           What Makes Us Special
         </h2>
         <p className="mt-3 text-gray-600 max-w-2xl mx-auto">
@@ -60,5 +60,5 @@ const OurFeatuers = () => {
       </div>
     </section>
   );
-}
- export default OurFeatuers;
+};
+export default OurFeatuers;

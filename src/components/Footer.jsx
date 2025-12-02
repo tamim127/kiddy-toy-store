@@ -9,6 +9,7 @@ import {
   Twitter,
 } from "lucide-react";
 import React from "react";
+import { Link } from "react-router";
 
 const Footer = () => {
   return (
@@ -29,24 +30,24 @@ const Footer = () => {
             <h4 className=" text-white text-lg font-semibold mb-6">About Us</h4>
             <ul className="space-y-3 text-gray-300">
               <li>
-                <a href="#" className="hover:text-[#3ca2fa] transition-colors">
+                <Link to="/our-story" className="hover:text-[#3ca2fa] transition-colors">
                   Our Story
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-[#3ca2fa] transition-colors">
+                <Link to="/meet-team" className="hover:text-[#3ca2fa] transition-colors">
                   Meet the Team
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-[#3ca2fa] transition-colors">
+                <Link to="/career" className="hover:text-[#3ca2fa] transition-colors">
                   Careers
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-[#3ca2fa] transition-colors">
+                <Link to="/contact" className="hover:text-[#3ca2fa] transition-colors">
                   Contact
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -56,23 +57,23 @@ const Footer = () => {
             </h4>
             <ul className="space-y-3 text-gray-300">
               <li>
-                <a href="#" className="hover:text-[#3ca2fa] transition-colors">
+                <Link to="/faq" className="hover:text-[#3ca2fa] transition-colors">
                   FAQs
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-[#3ca2fa] transition-colors">
+                <Link to="/support" className="hover:text-[#3ca2fa] transition-colors">
                   Support
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="#"
                   className="hover:text-[#3ca2fa] transition-colors relative"
                 >
                   Live Chat
                   <span className="absolute top-0 right-[-10px] w-2 h-2 rounded-full bg-[#3ca2fa] animate-pulse"></span>
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -87,7 +88,7 @@ const Footer = () => {
                   href="mailto:hello@toyTopia.com"
                   className="hover:text-[#3ca2fa] transition-colors"
                 >
-                  hello@toyTopia.com
+                  hello@kiddytoy.com
                 </a>
               </li>
               <li className="flex items-center space-x-3">

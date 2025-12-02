@@ -3,10 +3,13 @@ import React from "react";
 const FeaturedIslamicToys = () => {
   return (
     <div>
-      <section className="py-20 px-6 sm:px-12  rounded-xl bg-gradient-to-br from-purple-50 via-white to-blue-50">
-        <h2 className="text-4xl fredoka font-extrabold text-center text-gray-800 mb-12">
-          🌙 Featured Islamic Toys
-        </h2>
+      <section className="py-10 rounded-xl ">
+        <div className="mb-16 text-center">
+          <h2 className="text-5xl fredoka md:text-6xl font-black bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-700 bg-clip-text text-transparent mb-4">
+             Featured Islamic Toys
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto font-medium">Best Toys Ever For Muslim Kids</p>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {[

@@ -39,11 +39,11 @@ const DiscoverByAge = () => {
   ];
 
   return (
-    <section className="py-20 lg:py-28 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="py-8 lg:py-10 overflow-hidden">
+      <div className="max-w-7xl mx-auto ">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-5xl fredoka md:text-7xl font-black bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-700 bg-clip-text text-transparent mb-4">
+          <h2 className="text-5xl fredoka md:text-6xl font-black bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-700 bg-clip-text text-transparent mb-4">
             Discover By Age
           </h2>
           <p className="text-xl text-gray-600 font-medium">
