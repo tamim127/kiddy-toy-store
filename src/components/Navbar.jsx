@@ -1,178 +1,254 @@
-import React, { useState } from "react";
-import { Link, NavLink, useNavigate } from "react-router";
-import { useAuth } from "../Context/AuthContext.jsx";
+import React, { useState, useEffect } from "react";
+import { NavLink, Link, useNavigate } from "react-router";
+import { useAuth } from "../Context/AuthContext";
+import { Menu, X } from "lucide-react";
+import {
+  FiHome,
+  FiPackage,
+  FiInfo,
+  FiMail,
+  FiUser,
+  FiLayout,
+  FiLogOut,
+} from "react-icons/fi";
+
+// public routes
+const publicRoutes = [
+  { path: "/", name: "Home", icon: <FiHome className="w-5 h-5" /> },
+  {
+    path: "/all-toys",
+    name: "All Toys",
+    icon: <FiPackage className="w-5 h-5" />,
+  },
+  { path: "/about", name: "About", icon: <FiInfo className="w-5 h-5" /> },
+  { path: "/contact", name: "Contact", icon: <FiMail className="w-5 h-5" /> },
+];
+
+// private route for login user
+const privateRoutes = [
+  { path: "/myprofile", name: "Profile", icon: <FiUser className="w-5 h-5" /> },
+  {
+    path: "/dashboard",
+    name: "Dashboard",
+    icon: <FiLayout className="w-5 h-5" />,
+  },
+];
 
 const Navbar = () => {
-  const { user, loading, logout } = useAuth();
-  const [menuOpen, setMenuOpen] = useState(false);
+  const { user, logout, loading } = useAuth();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const navigate = useNavigate();
 
+  // scroll navbar change effect
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const handleLogout = async () => {
-    try {
-      await logout();
-      navigate("/login");
-    } catch (error) {
-      console.error("Logout failed:", error);
-    }
+    await logout();
+    navigate("/");
+    setIsMobileMenuOpen(false);
   };
 
-  const handleImgClick = () => {
-    navigate("/myprofile");
-  };
+  const navLinkStyle = ({ isActive }) =>
+    isActive
+      ? "flex items-center gap-2 text-pink-600 font-semibold"
+      : "flex items-center gap-2 text-gray-700 hover:text-purple-600 font-medium transition";
 
-  const handleProfileClick = () => {
-    if (!user) {
-      navigate("/login");
-    } else {
-      navigate("/myprofile");
-    }
+  // user profile URL
+  const getAvatarUrl = () => {
+    if (user?.photoURL) return user.photoURL;
+    const name = user?.displayName || "User";
+    return `https://ui-avatars.com/api/?name=${encodeURIComponent(
+      name
+    )}&background=random&color=fff&bold=true`;
   };
 
   return (
-    <nav className="bg-gradient-to-r from-indigo-300 via-purple-300 to-pink-300 p-4 shadow-md sticky top-0 z-50">
-      <div className="max-w-6xl mx-auto flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden flex flex-col justify-between w-6 h-5 focus:outline-none"
-          >
-            <span
-              className={`block h-1 w-full bg-gray-700 rounded transform transition duration-300 ${
-                menuOpen ? "rotate-45 translate-y-3" : ""
-              }`}
-            ></span>
-            <span
-              className={`block h-1 w-full bg-gray-800 rounded transition duration-300 ${
-                menuOpen ? "opacity-0" : ""
-              }`}
-            ></span>
-            <span
-              className={`block h-1 w-full bg-gray-800 rounded transform transition duration-300 ${
-                menuOpen ? "-rotate-45 -translate-y-1" : ""
-              }`}
-            ></span>
-          </button>
-
-          {/* Logo */}
-          <Link
-            to="/"
-            className="text-2xl rye  font-bold bg-gradient-to-r from-red-500 via-pink-600 to-red-700 bg-clip-text text-transparent  hover:text-indigo-700 transition"
-          >
-            KiddyToy
-          </Link>
-        </div>
-
-        {/* Center: Desktop Menu */}
-        <div className="hidden md:flex flex-1 justify-center gap-8">
-          <NavLink
-            to="/"
-            className={({ isActive }) =>
-              `text-gray-800 hover:text-pink-700 font-medium transition ${
-                isActive ? "text-pink-600" : ""
-              }`
-            }
-          >
-            Home
-          </NavLink>
-
-          <button
-            onClick={handleProfileClick}
-            className="text-gray-800 hover:text-pink-600 font-medium transition"
-          >
-            My Profile
-          </button>
-
-          {user && (
-            <NavLink
-              to="/dashboard"
-              className={({ isActive }) =>
-                `text-gray-800 hover:text-pink-600 font-medium transition ${
-                  isActive ? "text-pink-600" : ""
-                }`
-              }
-            >
-              Dashboard
-            </NavLink>
-          )}
-        </div>
-
-        {/* Right: User Info / Login */}
-        <div className="flex items-center gap-3">
-          {loading ? (
-            <p className="text-black ">
-              <span className="loading loading-ring loading-xl"></span>
-            </p>
-          ) : user ? (
-            <div className="flex items-center gap-3">
-              {/* User Image */}
-              <div onClick={handleImgClick} className="relative group ">
-                <img
-                  src={user.photoURL || "https://i.ibb.co/2M0x0X3/default.png"}
-                  alt={user.displayName || "User"}
-                  className=" w-9 md:w-10 h-9 md:h-10 rounded-full border-2 border-white cursor-pointer transition-transform duration-300 hover:scale-110"
-                />
-                <span className="absolute bottom-[-25px] left-1/2 transform -translate-x-1/2 bg-black text-white text-sm px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-all duration-300">
-                  {user.displayName || "User"}
-                </span>
-              </div>
-
-              {/* Logout Button */}
-              <button
-                onClick={handleLogout}
-                className="px-5 py-2 rounded-lg bg-gradient-to-r from-[#f30b0f] to-[#da4256] text-white font-semibold shadow-md hover:opacity-90 transition"
-              >
-                Logout
-              </button>
-            </div>
-          ) : (
-            <NavLink
-              to="/login"
-              className="px-6 py-2 rounded-lg bg-gradient-to-r from-[#632EE3] to-[#9F62F2] text-white font-semibold shadow-md hover:opacity-90 transition"
-            >
-              Login
-            </NavLink>
-          )}
-        </div>
-      </div>
-
-      {/* Mobile Menu */}
-      <div
-        className={`md:hidden flex flex-col gap-4 p-4 mt-2 rounded-lg transition-all duration-300 ${
-          menuOpen
-            ? "max-h-96 opacity-100"
-            : "max-h-0 opacity-0 overflow-hidden"
+    <>
+      {/* Fixed Navbar */}
+      <nav
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled
+            ? "bg-white/90 backdrop-blur-md shadow-md border-b border-gray-200"
+            : "bg-white/95 border-b border-gray-100"
         }`}
       >
-        <NavLink
-          to="/"
-          onClick={() => setMenuOpen(false)}
-          className="text-gray-800 hover:text-indigo-700 shadow-md p-3 rounded-2xl font-medium transition"
-        >
-          Home
-        </NavLink>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16 lg:h-20">
+            {/* Logo */}
+            <Link
+              to="/"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="flex items-center gap-1"
+            >
+              <span className="text-3xl font-black bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent">
+                KiddyToy
+              </span>
+              <span className="text-xs font-bold text-gray-600 uppercase tracking-wider">
+                Store
+              </span>
+            </Link>
 
-        <button
-          onClick={() => {
-            setMenuOpen(false);
-            handleProfileClick();
-          }}
-          className="text-gray-800 hover:text-indigo-700 shadow-md p-3 rounded-2xl font-medium transition text-left"
-        >
-          My Profile
-        </button>
+            {/* Desktop Center Menu */}
+            <div className="hidden lg:flex items-center gap-10 flex-1 justify-center">
+              {publicRoutes.map((route) => (
+                <NavLink
+                  key={route.path}
+                  to={route.path}
+                  className={navLinkStyle}
+                >
+                  {route.icon}
+                  <span>{route.name}</span>
+                </NavLink>
+              ))}
 
-        {user && (
-          <NavLink
-            to="/dashboard"
-            onClick={() => setMenuOpen(false)}
-            className="text-gray-800 hover:text-indigo-700 shadow-md p-3 rounded-2xl font-medium transition"
-          >
-            Dashboard
-          </NavLink>
+              {user &&
+                privateRoutes.map((route) => (
+                  <NavLink
+                    key={route.path}
+                    to={route.path}
+                    className={navLinkStyle}
+                  >
+                    {route.icon}
+                    <span>{route.name}</span>
+                  </NavLink>
+                ))}
+            </div>
+
+            {/* Right Side: Profile / Login + Mobile Toggle */}
+            <div className="flex items-center gap-4">
+              {loading ? (
+                <div className="w-11 h-11 rounded-full bg-gray-200 animate-pulse" />
+              ) : user ? (
+                <div className="flex items-center gap-3">
+                  {/* Profile Picture */}
+                  <button
+                    onClick={() => navigate("/myprofile")}
+                    className="relative group focus:outline-none"
+                  >
+                    <img
+                      src={getAvatarUrl()}
+                      alt="Profile"
+                      className="w-11 h-11 rounded-full object-cover border-3 border-pink-400 shadow-lg transition-all hover:scale-110 hover:border-purple-500"
+                    />
+                    {/* Simple Tooltip */}
+                    <div className="absolute -bottom-9 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition pointer-events-none">
+                      <span className="bg-gray-800 text-white text-xs px-2 py-1 rounded">
+                        {user?.displayName || "My Profile"}
+                      </span>
+                    </div>
+                  </button>
+
+                  {/* Logout Button - Desktop Only */}
+                  <button
+                    onClick={handleLogout}
+                    className="hidden sm:flex items-center gap-2 h-11 px-4 bg-gradient-to-r from-pink-500 to-purple-600 text-white font-medium rounded-lg hover:from-pink-600 hover:to-purple-700 transition shadow-md"
+                  >
+                    <FiLogOut className="w-5 h-5" />
+                    <span>Logout</span>
+                  </button>
+                </div>
+              ) : (
+                <Link
+                  to="/login"
+                  className="ml-5 px-3 md:px-6 py-2 md:py-3 bg-gradient-to-r from-pink-500 to-purple-600 text-white font-bold rounded-lg hover:from-pink-600 hover:to-purple-700 transition shadow-lg text-sm"
+                >
+                  Login
+                </Link>
+              )}
+
+              {/* Mobile Menu Button */}
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition"
+              >
+                {isMobileMenuOpen ? (
+                  <X className="w-7 h-7" />
+                ) : (
+                  <Menu className="w-7 h-7" />
+                )}
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Menu Dropdown */}
+        {isMobileMenuOpen && (
+          <div className="lg:hidden bg-white border-t border-gray-200 shadow-lg">
+            <div className="px-6 py-6 space-y-4">
+              {/* Public Links */}
+              {publicRoutes.map((route) => (
+                <NavLink
+                  key={route.path}
+                  to={route.path}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={({ isActive }) =>
+                    `flex items-center gap-3 text-lg font-medium ${
+                      isActive
+                        ? "text-pink-600"
+                        : "text-gray-700 hover:text-purple-600"
+                    }`
+                  }
+                >
+                  {route.icon}
+                  <span>{route.name}</span>
+                </NavLink>
+              ))}
+
+              {/* Private Links */}
+              {user &&
+                privateRoutes.map((route) => (
+                  <NavLink
+                    key={route.path}
+                    to={route.path}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={({ isActive }) =>
+                      `flex items-center gap-3 text-lg font-medium ${
+                        isActive
+                          ? "text-pink-600"
+                          : "text-gray-700 hover:text-purple-600"
+                      }`
+                    }
+                  >
+                    {route.icon}
+                    <span>{route.name}</span>
+                  </NavLink>
+                ))}
+
+              {/* Logout / Login in Mobile */}
+              <div className="border-t pt-5 mt-4">
+                {user ? (
+                  <button
+                    onClick={handleLogout}
+                    className="w-full flex items-center gap-3 text-lg font-bold text-pink-600 hover:text-pink-700"
+                  >
+                    <FiLogOut className="w-5 h-5" />
+                    Logout
+                  </button>
+                ) : (
+                  <Link
+                    to="/login"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="block text-lg font-bold text-purple-600 hover:text-purple-700"
+                  >
+                    Login
+                  </Link>
+                )}
+              </div>
+            </div>
+          </div>
         )}
-      </div>
-    </nav>
+      </nav>
+
+      {/* Navbar bottom spacing */}
+      <div className="h-16 lg:h-20" />
+    </>
   );
 };
 

@@ -24,6 +24,7 @@ export const router = createBrowserRouter([
           return res.json();
         },
       },
+     
 
       // Protected pages
       {

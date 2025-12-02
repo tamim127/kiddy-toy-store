@@ -8,7 +8,6 @@ import ParentsTestimonials from "../components/ParentsTestimonials";
 import WelcomSection from "./WelcomSection";
 import OurFeatuers from "../components/OurFeatuers";
 
-
 const Home = () => {
   const [showAll, setShowAll] = useState(false);
 
@@ -23,7 +22,7 @@ const Home = () => {
       <div>
         <WelcomSection />
       </div>
-      
+
       {/* Slider Section */}
       <div className="mb-8 sm:mb-12">
         <Slider />
@@ -67,11 +66,10 @@ const Home = () => {
       <div data-aos="fade-left" className="mb-10 sm:mb-16">
         <ParentsTestimonials />
       </div>
-    
+
       <div>
-        <OurFeatuers/>
+        <OurFeatuers />
       </div>
-      
     </div>
   );
 };
