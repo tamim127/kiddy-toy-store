@@ -30,22 +30,34 @@ const Footer = () => {
             <h4 className=" text-white text-lg font-semibold mb-6">About Us</h4>
             <ul className="space-y-3 text-gray-300">
               <li>
-                <Link to="/our-story" className="hover:text-[#3ca2fa] transition-colors">
+                <Link
+                  to="/our-story"
+                  className="hover:text-[#3ca2fa] transition-colors"
+                >
                   Our Story
                 </Link>
               </li>
               <li>
-                <Link to="/meet-team" className="hover:text-[#3ca2fa] transition-colors">
+                <Link
+                  to="/meet-team"
+                  className="hover:text-[#3ca2fa] transition-colors"
+                >
                   Meet the Team
                 </Link>
               </li>
               <li>
-                <Link to="/career" className="hover:text-[#3ca2fa] transition-colors">
+                <Link
+                  to="/career"
+                  className="hover:text-[#3ca2fa] transition-colors"
+                >
                   Careers
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="hover:text-[#3ca2fa] transition-colors">
+                <Link
+                  to="/contact"
+                  className="hover:text-[#3ca2fa] transition-colors"
+                >
                   Contact
                 </Link>
               </li>
@@ -57,12 +69,18 @@ const Footer = () => {
             </h4>
             <ul className="space-y-3 text-gray-300">
               <li>
-                <Link to="/faq" className="hover:text-[#3ca2fa] transition-colors">
+                <Link
+                  to="/faq"
+                  className="hover:text-[#3ca2fa] transition-colors"
+                >
                   FAQs
                 </Link>
               </li>
               <li>
-                <Link to="/support" className="hover:text-[#3ca2fa] transition-colors">
+                <Link
+                  to="/support"
+                  className="hover:text-[#3ca2fa] transition-colors"
+                >
                   Support
                 </Link>
               </li>
@@ -116,35 +134,35 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-400 space-y-4 md:space-y-0">
           <div className="flex space-x-6">
             <a
-              href="#"
+              href="https://www.facebook.com/"
               aria-label="Facebook"
               className="hover:text-[#3ca2fa] transition-colors"
             >
               <Facebook size={20} />
             </a>
             <a
-              href="#"
+              href="https://www.instagram.com/"
               aria-label="Instagram"
               className="hover:text-[#3ca2fa] transition-colors"
             >
               <Instagram size={20} />
             </a>
             <a
-              href="#"
+              href="https://www.x.com/"
               aria-label="Twitter"
               className="hover:text-[#3ca2fa] transition-colors"
             >
               <Twitter size={20} />
             </a>
             <a
-              href="#"
+              href="https://www.dribble.com/"
               aria-label="Dribbble"
               className="hover:text-[#3ca2fa] transition-colors"
             >
               <Dribbble size={20} />
             </a>
             <a
-              href="#"
+              href="https://www.facebook.com/"
               aria-label="Website"
               className="hover:text-[#3ca2fa] transition-colors"
             >
