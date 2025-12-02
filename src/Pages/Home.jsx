@@ -29,8 +29,7 @@ const Home = () => {
       {/* Discover By Age */}
       <div
         data-aos="fade-up"
-        data-aos-anchor-placement="bottom-bottom"
-        className="mb-10 sm:mb-16"
+        
       >
         <DiscoverByAge />
       </div>
