@@ -24,7 +24,7 @@ const About = () => {
         </div>
 
         <div className="relative z-10 text-center px-6 max-w-6xl mx-auto">
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 drop-shadow-2xl">
+          <h1 className="text-5xl fredoka md:text-7xl lg:text-8xl font-black text-white mb-6 drop-shadow-2xl">
             KiddyToy Store
           </h1>
           <p className="text-2xl md:text-4xl font-medium text-pink-100 mb-10 max-w-4xl mx-auto leading-relaxed">
@@ -51,7 +51,7 @@ const About = () => {
       <section className="py-20 ">
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
           <div>
-            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent mb-8">
+            <h2 className="text-4xl fredoka md:text-5xl font-bold bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent mb-8">
               Our Mission
             </h2>
             <p className="text-lg text-gray-700 leading-relaxed mb-6">
@@ -96,12 +96,11 @@ const About = () => {
       {/* Features Section */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <h2 className="text-4xl font-bold text-gray-800 mb-12">
+          <h2 className="text-4xl fredoka font-bold text-gray-800 mb-12">
             Why Choose KiddyToy?
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
-              
               {
                 icon: FiTruck,
                 title: "Fast Delivery",
@@ -138,12 +137,10 @@ const About = () => {
         </div>
       </section>
 
-    
-
       {/* Final CTA */}
       <section className="py-24 rounded-2xl  bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500">
         <div className="max-w-4xl mx-auto text-center px-6">
-          <h2 className="text-5xl md:text-6xl font-bold text-white mb-8">
+          <h2 className="text-5xl fredoka md:text-6xl font-bold text-white mb-8">
             Ready to Make Childhood Magical?
           </h2>
           <Link

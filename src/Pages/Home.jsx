@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Slider from "../components/Slider";
 import ToyCard from "../components/ToyCard";
 import DiscoverByAge from "../components/DiscoverByAge";
@@ -9,12 +8,6 @@ import WelcomSection from "./WelcomSection";
 import OurFeatuers from "../components/OurFeatuers";
 
 const Home = () => {
-  const [showAll, setShowAll] = useState(false);
-
-  const toggleShowAll = () => {
-    setShowAll((prev) => !prev);
-  };
-
   return (
     <div className="my-6 sm:my-10 px-4 sm:px-6 lg:px-0">
       <title>KiddyToy || Home</title>
@@ -30,17 +23,7 @@ const Home = () => {
 
       {/* Toy Cards Section */}
       <div className="mb-6 sm:mb-10">
-        <ToyCard showAll={showAll} />
-      </div>
-
-      {/* Toggle Show All Button */}
-      <div className="my-6 text-center">
-        <button
-          onClick={toggleShowAll}
-          className="inline-block px-6 py-3 rounded-lg bg-gradient-to-r from-[#632EE3] to-[#9F62F2] text-white font-semibold shadow-md hover:opacity-90 transition transform hover:scale-105"
-        >
-          {showAll ? "Show Less" : "Show All"}
-        </button>
+        <ToyCard />
       </div>
 
       {/* Discover By Age */}

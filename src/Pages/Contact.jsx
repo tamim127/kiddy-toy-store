@@ -27,7 +27,7 @@ const Contact = () => {
       {/* Hero */}
       <section className="py-10 text-center relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
-          <h1 className="text-5xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-purple-700 mb-6">
+          <h1 className="text-5xl fredoka md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-purple-700 mb-6">
             We’re Here for You
           </h1>
           <p className="text-2xl text-gray-700 max-w-3xl mx-auto">
@@ -128,8 +128,6 @@ const Contact = () => {
                 </div>
               ))}
             </div>
-
-            
           </div>
         </div>
       </section>

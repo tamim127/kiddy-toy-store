@@ -87,7 +87,7 @@ const Navbar = () => {
               onClick={() => setIsMobileMenuOpen(false)}
               className="flex items-center gap-1"
             >
-              <span className="text-3xl font-black bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent">
+              <span className="text-3xl fredoka font-black bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent">
                 KiddyToy
               </span>
               <span className="text-xs font-bold text-gray-600 uppercase tracking-wider">

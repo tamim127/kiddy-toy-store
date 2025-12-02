@@ -11,6 +11,7 @@ import Dashboard from "../Pages/Dashboard";
 import NotFound from "../Pages/NotFound";
 import About from "../Pages/About";
 import Contact from "../Pages/Contact";
+import AllToys from "../Pages/AllToys";
 
 export const router = createBrowserRouter([
   {
@@ -26,7 +27,6 @@ export const router = createBrowserRouter([
           return res.json();
         },
       },
-     
 
       // Protected pages
       {
@@ -48,9 +48,9 @@ export const router = createBrowserRouter([
       {
         path: "/home/:id",
         element: (
-          <ProtectedRoute>
+          
             <ToyDetails />
-          </ProtectedRoute>
+          
         ),
       },
 
@@ -60,6 +60,11 @@ export const router = createBrowserRouter([
       { path: "/forgetpassword", element: <ForgetPassword /> },
       { path: "/about", element: <About /> },
       { path: "/contact", element: <Contact /> },
+      {
+        path: "/all-toys",
+        element: <AllToys />,
+        loader: () => fetch("/ToyData.json"),
+      },
     ],
   },
   {
