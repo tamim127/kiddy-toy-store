@@ -9,6 +9,8 @@ import ForgetPassword from "../Pages/ForgetPassword";
 import ProtectedRoute from "../components/ProtectedRoute";
 import Dashboard from "../Pages/Dashboard";
 import NotFound from "../Pages/NotFound";
+import About from "../Pages/About";
+import Contact from "../Pages/Contact";
 
 export const router = createBrowserRouter([
   {
@@ -56,6 +58,8 @@ export const router = createBrowserRouter([
       { path: "/login", element: <Login /> },
       { path: "/register", element: <Register /> },
       { path: "/forgetpassword", element: <ForgetPassword /> },
+      { path: "/about", element: <About /> },
+      { path: "/contact", element: <Contact /> },
     ],
   },
   {
