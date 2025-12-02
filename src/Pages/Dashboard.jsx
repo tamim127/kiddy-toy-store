@@ -107,7 +107,7 @@ const Dashboard = () => {
           {/* Recent Orders + Quick Actions */}
           <div className="flex flex-col lg:flex-row gap-6">
             {/* Recent Orders */}
-            <div className="lg:flex-2 rounded-2xl shadow-md overflow-x-auto">
+            <div className="lg:flex-2 bg-white rounded-2xl shadow-md overflow-x-auto">
               <div className="p-4 sm:p-6 border-b border-gray-100">
                 <h3 className="text-lg sm:text-xl font-bold text-gray-800">
                   Recent Orders
@@ -136,7 +136,7 @@ const Dashboard = () => {
                       key={order.id}
                       className="border-b border-gray-100 hover:bg-gray-50 transition"
                     >
-                      <td className=" py-2 font-medium text-gray-900 text-sm sm:text-base">
+                      <td className="px-4 py-2 font-medium text-gray-900 text-sm sm:text-base">
                         {order.id}
                       </td>
                       <td className="px-4 py-2 text-gray-700 text-sm sm:text-base">
